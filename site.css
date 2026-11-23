@@ -1,0 +1,432 @@
+/* ==========================================================
+   mistermarbi.com — site styles
+   Black and white first. Greys do the quiet work.
+   ========================================================== */
+
+:root {
+  --bg: #0a0a0a;
+  --surface: #111111;
+  --line: #222222;
+  --line-strong: #333333;
+  --text: #f5f5f4;
+  --muted: #a3a3a3;
+  --faint: #6b6b6b;
+  --live: #9fbf9a;          /* soft sage, used only for "live" status */
+  --radius: 14px;
+  --max: 1120px;
+  --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue",
+          Roboto, Arial, sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 400 17px/1.65 var(--sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: inherit; }
+
+a:focus-visible,
+.btn:focus-visible {
+  outline: 2px solid var(--text);
+  outline-offset: 3px;
+}
+
+.wrap {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0 28px;
+}
+
+/* ---------- Top bar ---------- */
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(10, 10, 10, 0.82);
+  -webkit-backdrop-filter: saturate(140%) blur(12px);
+  backdrop-filter: saturate(140%) blur(12px);
+  border-bottom: 1px solid var(--line);
+}
+
+.topbar .wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+}
+
+.wordmark {
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: 0.22em;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.nav {
+  display: flex;
+  gap: 28px;
+}
+
+.nav a {
+  font-size: 14px;
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.nav a:hover { color: var(--text); }
+
+/* ---------- Hero ---------- */
+
+.hero {
+  padding: 140px 0 120px;
+  border-bottom: 1px solid var(--line);
+  background:
+    radial-gradient(ellipse 60% 50% at 50% 0%, rgba(255, 255, 255, 0.06), transparent 70%);
+}
+
+.eyebrow {
+  font-size: 13px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 0 0 22px;
+}
+
+.hero h1 {
+  font-size: clamp(44px, 7.4vw, 92px);
+  line-height: 1.02;
+  letter-spacing: -0.035em;
+  font-weight: 650;
+  margin: 0 0 28px;
+  max-width: 19ch;
+}
+
+.hero h1 span { color: var(--faint); }
+
+.hero .lede {
+  font-size: clamp(18px, 2vw, 21px);
+  color: var(--muted);
+  max-width: 34em;
+  margin: 0 0 40px;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 48px;
+  padding: 0 22px;
+  border-radius: 999px;
+  font-size: 15px;
+  font-weight: 550;
+  text-decoration: none;
+  border: 1px solid var(--text);
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.btn-solid {
+  background: var(--text);
+  color: var(--bg);
+}
+
+.btn-solid:hover { background: #d6d6d3; border-color: #d6d6d3; }
+
+.btn-ghost {
+  background: transparent;
+  color: var(--text);
+  border-color: var(--line-strong);
+}
+
+.btn-ghost:hover { border-color: var(--text); }
+
+/* ---------- Sections ---------- */
+
+.section {
+  padding: 110px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.section-head {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 40px;
+  margin-bottom: 56px;
+}
+
+.section-head .eyebrow { margin: 6px 0 0; }
+
+.section-head h2 {
+  font-size: clamp(30px, 3.6vw, 44px);
+  line-height: 1.12;
+  letter-spacing: -0.025em;
+  font-weight: 620;
+  margin: 0;
+}
+
+/* ---------- What we make ---------- */
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.card {
+  position: relative;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 36px 34px 34px;
+  transition: border-color 0.25s ease, transform 0.25s ease;
+}
+
+.card:hover {
+  border-color: var(--line-strong);
+  transform: translateY(-3px);
+}
+
+.card .num {
+  font-size: 13px;
+  color: var(--faint);
+  letter-spacing: 0.1em;
+  margin: 0 0 56px;
+}
+
+.card h3 {
+  font-size: 26px;
+  letter-spacing: -0.02em;
+  font-weight: 620;
+  margin: 0 0 12px;
+}
+
+.card p {
+  color: var(--muted);
+  margin: 0 0 26px;
+}
+
+.status {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 13px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 0;
+}
+
+.status::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--faint);
+}
+
+.status.live::before {
+  background: var(--live);
+  box-shadow: 0 0 0 4px rgba(159, 191, 154, 0.12);
+}
+
+/* ---------- About ---------- */
+
+.principles {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-top: 1px solid var(--line);
+}
+
+.principle {
+  padding: 34px 32px 8px 0;
+}
+
+.principle + .principle {
+  padding-left: 32px;
+  border-left: 1px solid var(--line);
+}
+
+.principle h3 {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0 0 10px;
+}
+
+.principle p {
+  color: var(--muted);
+  margin: 0;
+}
+
+.closing {
+  margin: 64px 0 0;
+  font-size: clamp(20px, 2.2vw, 26px);
+  line-height: 1.45;
+  letter-spacing: -0.01em;
+  max-width: 30em;
+  color: var(--muted);
+}
+
+.closing strong {
+  color: var(--text);
+  font-weight: 560;
+}
+
+/* ---------- Contact ---------- */
+
+.contact {
+  padding: 130px 0;
+  text-align: center;
+}
+
+.contact h2 {
+  font-size: clamp(36px, 5vw, 60px);
+  letter-spacing: -0.03em;
+  font-weight: 640;
+  line-height: 1.08;
+  margin: 0 0 18px;
+}
+
+.contact p {
+  color: var(--muted);
+  margin: 0 auto 36px;
+  max-width: 32em;
+}
+
+.contact .actions { justify-content: center; }
+
+.address {
+  margin-top: 40px !important;
+  font-size: 14px;
+  color: var(--faint) !important;
+}
+
+/* ---------- Footer ---------- */
+
+.footer {
+  border-top: 1px solid var(--line);
+  padding: 32px 0 40px;
+  font-size: 14px;
+  color: var(--faint);
+}
+
+.footer .wrap {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.footer nav {
+  display: flex;
+  gap: 24px;
+}
+
+.footer a {
+  color: var(--muted);
+  text-decoration: none;
+}
+
+.footer a:hover { color: var(--text); }
+
+/* ---------- Legal pages ---------- */
+
+.legal {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 90px 28px 100px;
+}
+
+.legal h1 {
+  font-size: clamp(36px, 5vw, 52px);
+  letter-spacing: -0.03em;
+  font-weight: 640;
+  line-height: 1.1;
+  margin: 0 0 14px;
+}
+
+.legal .updated {
+  color: var(--faint);
+  font-size: 14px;
+  margin: 0 0 44px;
+}
+
+.legal h2 {
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  margin: 48px 0 12px;
+  padding-top: 28px;
+  border-top: 1px solid var(--line);
+}
+
+.legal p,
+.legal li {
+  color: #cfcfcd;
+  margin: 0 0 14px;
+}
+
+.legal ul { padding-left: 22px; }
+
+.legal strong { color: var(--text); font-weight: 600; }
+
+.legal a { text-decoration-color: var(--faint); text-underline-offset: 3px; }
+
+.summary {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 26px 28px 14px;
+  margin: 0 0 12px;
+}
+
+/* ---------- Small screens ---------- */
+
+@media (max-width: 820px) {
+  .section-head { grid-template-columns: 1fr; gap: 14px; margin-bottom: 40px; }
+  .cards { grid-template-columns: 1fr; }
+  .principles { grid-template-columns: 1fr; }
+  .principle,
+  .principle + .principle {
+    padding: 28px 0;
+    border-left: 0;
+    border-bottom: 1px solid var(--line);
+  }
+}
+
+@media (max-width: 560px) {
+  body { font-size: 16px; }
+  .wrap { padding: 0 22px; }
+  .nav { gap: 18px; }
+  .nav a[href="#about"] { display: none; }
+  .hero { padding: 96px 0 84px; }
+  .section { padding: 80px 0; }
+  .contact { padding: 96px 0; }
+  .card { padding: 30px 26px 28px; }
+  .card .num { margin-bottom: 40px; }
+  .btn { height: 46px; }
+  .legal { padding: 64px 22px 80px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .card, .btn, .nav a { transition: none; }
+  .card:hover { transform: none; }
+}
