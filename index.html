@@ -12,6 +12,8 @@
 <meta property="og:type" content="website">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="site.css">
+<script>document.documentElement.classList.add('js');</script>
+<script src="site.js" defer></script>
 </head>
 <body>
 
@@ -48,13 +50,54 @@
       </div>
 
       <div class="cards">
-        <article class="card">
-          <p class="num">01</p>
-          <h3>Online tools</h3>
-          <p>Self-serve tools for everyday tasks. Each tool lives at its own
-          address on mistermarbi.com, runs on the web, and uses secure
-          checkout through Stripe.</p>
-          <p class="status live">Live now</p>
+        <article class="card card-expand" id="tools-card">
+          <div class="card-head">
+            <p class="num">01</p>
+            <h3><button class="card-toggle" type="button" aria-expanded="false" aria-controls="tools-drawer">Online tools</button></h3>
+            <p>Self-serve tools for everyday tasks. Each tool lives at its own
+            address on mistermarbi.com, runs on the web, and uses secure
+            checkout through Stripe.</p>
+            <div class="card-foot">
+              <p class="status live">Live now</p>
+              <span class="toggle-hint" aria-hidden="true"><span class="toggle-count">3 live</span><span class="plus"></span></span>
+            </div>
+          </div>
+          <div class="drawer" id="tools-drawer">
+            <div class="drawer-inner">
+              <ul class="tool-list">
+                <li style="--i:0">
+                  <a class="tool" href="https://tools.mistermarbi.com/">
+                    <span class="tool-text">
+                      <span class="tool-name">Domain Health</span>
+                      <span class="tool-desc">Free email and domain checks (SPF, DKIM, DMARC, MX, SSL), with monitoring.</span>
+                    </span>
+                    <span class="tool-url">tools.mistermarbi.com</span>
+                    <span class="tool-arrow" aria-hidden="true">&#8599;</span>
+                  </a>
+                </li>
+                <li style="--i:1">
+                  <a class="tool" href="https://templates.mistermarbi.com/">
+                    <span class="tool-text">
+                      <span class="tool-name">Templates</span>
+                      <span class="tool-desc">Planning spreadsheets for the holidays, weddings, family reunions and scholarships.</span>
+                    </span>
+                    <span class="tool-url">templates.mistermarbi.com</span>
+                    <span class="tool-arrow" aria-hidden="true">&#8599;</span>
+                  </a>
+                </li>
+                <li style="--i:2">
+                  <a class="tool" href="https://mistermarbi.etsy.com/" target="_blank" rel="noopener">
+                    <span class="tool-text">
+                      <span class="tool-name">Etsy shop</span>
+                      <span class="tool-desc">Our spreadsheet templates, ready to download.</span>
+                    </span>
+                    <span class="tool-url">mistermarbi.etsy.com</span>
+                    <span class="tool-arrow" aria-hidden="true">&#8599;</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
         </article>
 
         <article class="card">
